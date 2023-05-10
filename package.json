@@ -1,7 +1,6 @@
 {
   "name": "level_3",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +18,14 @@
   "devDependencies": {
     "nodemon": "^2.0.22",
     "sequelize-cli": "^6.6.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkerast/LEVEL_3.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kkerast/LEVEL_3/issues"
+  },
+  "homepage": "https://github.com/kkerast/LEVEL_3#readme",
+  "description": ""
 }

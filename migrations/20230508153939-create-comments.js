@@ -2,8 +2,8 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('UserInfos', {
-      userInfoId: {
+    await queryInterface.createTable('Comments', {
+      commentId: {
         allowNull: false, // NOT NULL
         autoIncrement: true, // AUTO_INCREMENT
         primaryKey: true, // Primary Key (기본키)
@@ -12,26 +12,23 @@ module.exports = {
       UserId: {
         allowNull: false, // NOT NULL
         type: Sequelize.INTEGER,
-        unique: true, // UNIQUE
         references: {
           model: 'Users', // Users 모델을 참조합니다.
           key: 'userId', // Users 모델의 userId를 참조합니다.
         },
-        onDelete: 'CASCADE', // 만약 Users 모델의 userId가 삭제되면, UserInfos 모델의 데이터가 삭제됩니다.
+        onDelete: 'CASCADE', // 만약 Users 모델의 userId가 삭제되면, Comments 모델의 데이터가 삭제됩니다.
       },
-      name: {
+      PostId: {
         allowNull: false, // NOT NULL
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Posts', // Posts 모델을 참조합니다.
+          key: 'postId', // Posts 모델의 postId를 참조합니다.
+        },
+        onDelete: 'CASCADE', // 만약 Posts 모델의 postId가 삭제되면, Comments 모델의 데이터가 삭제됩니다.
       },
-      age: {
+      comment: {
         allowNull: false, // NOT NULL
-        type: Sequelize.INTEGER
-      },
-      gender: {
-        allowNull: false, // NOT NULL
-        type: Sequelize.STRING
-      },
-      profileImage: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -47,6 +44,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('UserInfos');
+    await queryInterface.dropTable('Comments');
   }
 };

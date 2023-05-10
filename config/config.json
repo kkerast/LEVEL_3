@@ -1,10 +1,10 @@
 
 {
   "development": {
-    "username": USER_NAME,
-    "password": PASS,
-    "database": DB_NAME,
-    "host": RDS_END_POINT,
+    "username": "root",
+    "password": "asd51234",
+    "database": "database_LEVEL3",
+    "host": "express-database.c5dgpnnbieny.ap-northeast-2.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
